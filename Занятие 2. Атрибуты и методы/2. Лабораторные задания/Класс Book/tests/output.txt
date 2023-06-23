@@ -1,0 +1,3 @@
+Книга "test_name_1"
+Книга "test_name_2"
+[Book(id_=1, name='test_name_1', pages=200), Book(id_=2, name='test_name_2', pages=400)]
