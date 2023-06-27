@@ -1,5 +1,15 @@
 class Calculator:
-    ...  # TODO написать статические методы
+    @staticmethod
+    def add(number_1: int, number_2: int) -> int:
+        if not isinstance(number_1, int) or not isinstance(number_2, int):
+            raise TypeError
+        return number_1 + number_2
+
+    @staticmethod
+    def mul(number_1: int, number_2: int) -> int:
+        if not isinstance(number_1, int) or not isinstance(number_2, int):
+            raise TypeError
+        return number_1 * number_2
 
 
 if __name__ == "__main__":

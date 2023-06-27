@@ -12,7 +12,22 @@ BOOKS_DATABASE = [
 ]
 
 
-# TODO написать класс Book
+class Book:
+    def __init__(self, id_: int, name: str, pages: int):
+        if not isinstance(id_, int) or not isinstance(name, str) or not isinstance(pages, int):
+            raise TypeError
+        if pages <= 0:
+            raise ValueError
+
+        self.id = id_
+        self.name = name
+        self.pages = pages
+
+    def __str__(self):
+        return f'Книга "{self.name}"'
+
+    def __repr__(self):
+        return f'{self.__class__.__name__}(id_={self.id}, name={self.name!r}, pages={self.pages})'
 
 
 if __name__ == '__main__':
