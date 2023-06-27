@@ -78,7 +78,22 @@ class LinkedList:
 
         return self
 
-    # TODO определить метод сложения, когда LinkedList находится справа от оператора сложения
+    def __radd__(self, other: ["LinkedList", list]) -> "LinkedList":
+
+        if not isinstance(other, (LinkedList, list)):
+            raise TypeError
+
+        for item in reversed(other):
+            append_node = Node(item)
+            if self.head is None:
+                self.head = append_node
+                self.tail = append_node
+            else:
+                append_node.next = self.head
+                self.head = append_node
+            self.len += 1
+
+        return self
 
 
 if __name__ == "__main__":
