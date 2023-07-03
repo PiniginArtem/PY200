@@ -11,10 +11,10 @@ class Node:
         :param next_: следующий узел, если он есть
         """
         self.value = value
-
-        # TODO заменить на вызов setter
-        self.next = None
-        self.set_next(next_)
+        self.next = next_
+    @property
+    def next(self):
+        return self._next
 
     def __repr__(self) -> str:
         return f"Node({self.value}, {None})" if self.next is None else f"Node({self.value}, Node({self.next}))"
@@ -26,10 +26,11 @@ class Node:
         if not isinstance(node, (type(None), Node)):
             raise TypeError
 
-    # TODO заменить на getter и setter
-    def set_next(self, next_: Optional["Node"] = None) -> None:
-        self.is_valid(next_)
-        self.next = next_
+    @next.setter
+    def next(self, value: Optional["Node"] = None):
+        print("Вызван setter")
+        self.is_valid(value)
+        self._next = value
 
 
 if __name__ == "__main__":
